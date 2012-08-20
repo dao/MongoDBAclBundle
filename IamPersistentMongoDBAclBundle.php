@@ -12,9 +12,9 @@ namespace IamPersistent\MongoDBAclBundle;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use IamPersistent\MongoDBAclBundle\DependencyInjection\Compiler\CreateHydratorDirectoryPass;
-use IamPersistent\MongoDBAclBundle\DependencyInjection\Compiler\CreateProxyDirectoryPass;
-use IamPersistent\MongoDBAclBundle\DependencyInjection\Compiler\EventManagerPass;
+//use IamPersistent\MongoDBAclBundle\DependencyInjection\Compiler\CreateHydratorDirectoryPass;
+//use IamPersistent\MongoDBAclBundle\DependencyInjection\Compiler\CreateProxyDirectoryPass;
+//use IamPersistent\MongoDBAclBundle\DependencyInjection\Compiler\EventManagerPass;
 use IamPersistent\MongoDBAclBundle\DependencyInjection\DoctrineMongoDBExtension;
 
 /**
@@ -24,8 +24,8 @@ class IamPersistentMongoDBAclBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
-        $container->addCompilerPass(new EventManagerPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION);
-        $container->addCompilerPass(new CreateProxyDirectoryPass(), PassConfig::TYPE_BEFORE_REMOVING);
-        $container->addCompilerPass(new CreateHydratorDirectoryPass(), PassConfig::TYPE_BEFORE_REMOVING);
+//        $container->addCompilerPass(new EventManagerPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION);
+//        $container->addCompilerPass(new CreateProxyDirectoryPass(), PassConfig::TYPE_BEFORE_REMOVING);
+//        $container->addCompilerPass(new CreateHydratorDirectoryPass(), PassConfig::TYPE_BEFORE_REMOVING);
     }
 }

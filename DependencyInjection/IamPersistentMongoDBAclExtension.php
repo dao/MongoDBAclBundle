@@ -36,22 +36,27 @@ class IamPersistentMongoDBAclExtension extends AbstractDoctrineExtension
         $config = $processor->processConfiguration($configuration, $configs);
 
         if (isset($config['acl_provider'])) {
-            $this->loadAcl($config['acl_provider'], $config['default_database'], $container);
+            $this->loadAcl($config['acl_provider'], $container);
         }
     }
 
-    protected function loadAcl($config, $defaultDatabase, ContainerBuilder $container)
+    protected function loadAcl($config, ContainerBuilder $container)
     {
-        $database = isset($config['database']) ? $config['database'] : $defaultDatabase;
+        $database = $config['database'];
         $container->setParameter('doctrine.odm.mongodb.security.acl.database', $database);
 
         $container->setParameter('doctrine.odm.mongodb.security.acl.entry_collection', $config['collections']['entry']);
         $container->setParameter('doctrine.odm.mongodb.security.acl.oid_collection', $config['collections']['object_identity']);
     }
 
+    protected function getMappingObjectDefaultName() {}
+    protected function getMappingResourceExtension() {}
+    protected function getObjectManagerElementName($name) {}
+    protected function getMappingResourceConfigDirectory() {}
+    
     public function getAlias()
     {
-        return 'iampersistent_mongodb_acl';
+        return 'iam_persistent_mongo_db_acl';
     }
 
     /**

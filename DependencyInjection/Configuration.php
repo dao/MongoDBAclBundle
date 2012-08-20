@@ -48,7 +48,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('acl_provider')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('database')->end()
+                        ->scalarNode('database')->defaultValue('acl')->end()
                         ->arrayNode('collections')
                             ->addDefaultsIfNotSet()
                             ->children()
